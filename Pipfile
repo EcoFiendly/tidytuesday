@@ -12,6 +12,8 @@ pandas = "*"
 mage-ai = "*"
 google-cloud = "*"
 google-cloud-bigquery = "*"
+seaborn = "*"
+matplotlib = "*"
 
 [dev-packages]
 
