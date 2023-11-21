@@ -22,6 +22,18 @@ def transform(df, *args, **kwargs):
     # Specify your transformation logic here
     df = df.drop_duplicates().reset_index(drop=True)
 
+    # Group by 'Product_ID' and find the mode for each group
+    mode_per_product_id = df.groupby('Product_ID')['Product_Category'].agg(lambda x: x.mode().iloc[0]).reset_index()
+
+    # Merge the mode_per_product_id DataFrame back to the original DataFrame
+    df = pd.merge(df, mode_per_product_id, on='Product_ID', how='left', suffixes=('', '_mode'))
+
+    # Backfill 'Product_Category' with the mode values
+    df['Product_Category'] = df['Product_Category_mode'].combine_first(df['Product_Category'])
+
+    # Drop the extra column
+    df = df.drop(['Product_Category_mode'], axis=1)
+
     customer_dim = df[["User_ID", 
                    "Cust_name", 
                    "Gender", 
