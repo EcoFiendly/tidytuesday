@@ -1,0 +1,3 @@
+# R-Ladies Chapter Events
+
+R-Ladies Global is an inspiring story of community, empowerment, and diversity in the field of data science. Founded by Gabriela de Queiroz, R-Ladies began as a grassroots movement with a simple mission: to promote gender diversity in the R programming community and provide a welcoming space for women and gender minorities to learn, collaborate, and excel in data science.
